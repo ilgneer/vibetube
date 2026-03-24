@@ -124,7 +124,7 @@ export default function Home() {
                 whileHover={{ y: -4, scale: 1.02 }}
                 whileTap={{ scale: 0.97, skewX: 5 }}
                 onClick={() => setFormato(item.id)}
-                className={`flex items-center justify-center gap-3 py-3 sm:py-4 rounded-xl border-2 transition-all duration-300 font-bold uppercase tracking-wider text-xs sm:text-sm ${
+                className={` cursor-pointer flex items-center justify-center gap-3 py-3 sm:py-4 rounded-xl border-2 transition-all duration-300 font-bold uppercase tracking-wider text-xs sm:text-sm ${
                   formato === item.id 
                     ? "bg-fuchsia-600 border-fuchsia-400 text-white shadow-[0_0_20px_rgba(217,70,239,0.6)]" 
                     : "border-violet-800 bg-violet-950/40 text-violet-300 hover:border-fuchsia-800 hover:bg-fuchsia-950/20 shadow-none"
@@ -139,7 +139,7 @@ export default function Home() {
             whileHover={!carregando ? { scale: 1.03, boxShadow: "0 0 30px rgba(34,211,238,0.5)" } : {}}
             whileTap={!carregando ? { skewY: 2 } : {}}
             disabled={carregando || !url}
-            className="w-full relative flex items-center justify-center gap-3 disabled:bg-neutral-800 disabled:text-neutral-500 disabled:border-neutral-700 disabled:shadow-none text-white font-extrabold py-4 sm:py-5 rounded-xl transition-all duration-100 border-b-4 border-cyan-700 uppercase tracking-widest group overflow-hidden text-sm sm:text-base"
+            className="cursor-pointer disabled:cursor-not-allowed w-full relative flex items-center justify-center gap-3 disabled:bg-neutral-800 disabled:text-neutral-500 disabled:border-neutral-700 disabled:shadow-none text-white font-extrabold py-4 sm:py-5 rounded-xl transition-all duration-100 border-b-4 border-cyan-700 uppercase tracking-widest group overflow-hidden text-sm sm:text-base"
           >
             <div className={`absolute inset-0 ${carregando ? 'bg-gradient-to-r from-cyan-600 via-fuchsia-600 to-cyan-600 animate-pulse' : 'bg-cyan-500'} group-hover:bg-cyan-400 transition-colors`}/>
             <div className="relative z-10 flex items-center gap-3">
