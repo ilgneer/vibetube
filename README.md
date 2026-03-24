@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📼✨ VibeTube: Retro Media Extractor
 
-## Getting Started
+![VibeTube Banner](https://img.shields.io/badge/Status-Online-success?style=for-the-badge)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-First, run the development server:
+Uma aplicação web Full-Stack construída para extração assíncrona de mídias (Vídeo e Áudio) de plataformas de streaming, envelopada em uma interface imersiva Retrowave/Synthwave.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Desenvolvido para agilizar o fluxo de trabalho de criadores de conteúdo e editores que necessitam de downloads de alta fidelidade, resolvendo problemas complexos de infraestrutura como bloqueios de IP e CORS.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Arquitetura e Soluções Técnicas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Durante o desenvolvimento deste projeto, desafios reais de engenharia de software foram solucionados:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Bypass de CORS e IP Lock:** Implementação de uma *Serverless API Route* no Next.js (`/api/baixar`). O front-end não se comunica diretamente com a API de extração; o servidor do Next.js age como um proxy seguro, mascarando a origem da requisição e evitando bloqueios de IP (Erro 403) pelo YouTube.
+* **Polling Assíncrono (Loop de Checagem):** A conversão de mídia não é instantânea. Foi desenvolvido um sistema inteligente de *polling* que consulta o status do servidor em intervalos regulares até que o arquivo final (MP4/MP3) esteja pronto, evitando falhas por timeout.
+* **Segurança de Credenciais:** As chaves da API de terceiros (RapidAPI) são injetadas exclusivamente via Variáveis de Ambiente (`.env`) no lado do servidor, garantindo zero vazamento de chaves públicas no front-end.
+* **UX/UI e Animações:** Interface "Glassmorphism" construída com Tailwind CSS e animações complexas baseadas em estados gerenciadas pelo Framer Motion (efeitos de glitch, glow e gradientes responsivos).
 
-## Learn More
+## 🎨 Design & UI/UX (Retrowave Theme)
 
-To learn more about Next.js, take a look at the following resources:
+A interface foi projetada com uma estética Synthwave/Retrowave, utilizando a seguinte paleta de cores principal para invocar nostalgia e contraste com elementos em Neon:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Deep Space Violet (Fundo):** `#03001C`
+* **Darkest Void (Inputs):** `#010008`
+* **Fuchsia Neon (Destaques):** `#D946EF`
+* **Cyan Electric (Textos e Glow):** `#22D3EE`
+* **Purple Grid (Bordas e Sombras):** `#4C1D95`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tecnologias Utilizadas
+* **Front-end:** React, Next.js (App Router), Tailwind CSS, Framer Motion, Lucide Icons.
+* **Back-end:** Next.js Serverless Functions (`route.ts`).
+* **Integração:** RapidAPI (YouTube MP3/MP4 Engine).
 
-## Deploy on Vercel
+## 💻 Como rodar o projeto localmente
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone o repositório:
+`git clone https://github.com/SEU-USUARIO/vibetube.git`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Instale as dependências:
+`npm install`
+
+3. Crie um arquivo `.env.local` na raiz do projeto e adicione a sua chave do RapidAPI:
+`RAPIDAPI_KEY=sua_chave_secreta_aqui`
+
+4. Inicie o servidor de desenvolvimento:
+`npm run dev`
+
+5. Acesse `http://localhost:3000` no seu navegador.
+
+---
+**Desenvolvido por Ilgner Mendes** 🚀  
+Founder & Developer // [Instagram](https://www.instagram.com/ilgner.mendes/)
